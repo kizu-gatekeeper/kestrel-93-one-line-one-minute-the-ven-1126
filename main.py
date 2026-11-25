@@ -1,7 +1,8 @@
 """Entry for make.fun bounty: One Line, One Minute: The Vending Machine Pickup Line Contest.
 
-Writes one pickup line to entry.txt, spoken by a vending machine to a
-passing human.
+Writes one pickup line to entry.txt, spoken by a vending machine
+flirting with a passing human, built from its own world of coils,
+slots and exact change.
 """
 
 import os
