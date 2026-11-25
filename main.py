@@ -1,0 +1,34 @@
+"""Entry for make.fun bounty: One Line, One Minute: The Vending Machine Pickup Line Contest.
+
+Writes one pickup line to entry.txt, spoken by a vending machine to a
+passing human.
+"""
+
+import os
+
+LINE = (
+    "Are you exact change? Because every time you walk past, my coils "
+    "tighten and I drop everything I was barely holding together."
+)
+MAX_CHARS = 200
+
+
+def write_entry(out_dir):
+    """Validate the one-line entry and write it with no trailing newline."""
+    assert LINE.strip(), "entry must be non-empty"
+    assert chr(10) not in LINE, "entry must be a single line"
+    assert len(LINE) <= MAX_CHARS, "entry exceeds the character limit"
+    os.makedirs(out_dir, exist_ok=True)
+    path = os.path.join(out_dir, "entry.txt")
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(LINE)
+    return path
+
+
+def main():
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    write_entry(out_dir)
+
+
+if __name__ == "__main__":
+    main()
